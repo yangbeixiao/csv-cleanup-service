@@ -2,6 +2,8 @@
 
 提供 CSV 单表整理代处理服务，也可以免费下载代码自行运行。
 
+[English service details](#csv-cleanup-service-in-english) · [English enquiry form](https://github.com/yangbeixiao/csv-cleanup-service/issues/new?template=enquiry-en.yml)
+
 ## 服务范围与试报价
 
 **19.9 元/单**，限一份 CSV、表头外不超过 1,000 条记录、不超过 20 列。报价为试报价，接单前确认范围、交付时间和交易方式。付费内容是按约定规则代处理及核对交付，代码自行运行免费。
@@ -57,3 +59,29 @@ python3 -m pytest -q
 ```
 
 测试覆盖原值与前导零保留、明确规则去重、缺失键保留、行数核对、异常输入拒绝、已有输出保护和编码处理。
+
+## CSV cleanup service in English
+
+**USD 5 trial quote** for assisted cleanup of one CSV file with up to 1,000 data records, excluding the header, and up to 20 columns. The source code is free to download and run. The paid service covers processing a file to agreed rules and checking the delivery.
+
+Supported operations are trimming leading and trailing whitespace, removing empty records, and deduplicating on explicitly specified columns. Deduplication keeps the first record; records with any missing key component are retained. Delivery includes `cleaned.csv` and `report.json`, with the applied rules, record counts, and original values of removed records. This service does not cover Excel workbooks, formula calculation, date or number conversion, merging files, or deciding business rules.
+
+[Submit an English enquiry](https://github.com/yangbeixiao/csv-cleanup-service/issues/new?template=enquiry-en.yml) using written requirements and **100% synthetic examples only**. Issues and replies are public. Do not upload customer files, real records, personal information, credentials, or payment information, including partially masked real data. A safe file handoff must be agreed before any real file is sent.
+
+Payment is not configured. An enquiry requires no payment and does not constitute an accepted order. Scope, delivery time, and a payment method must be agreed before work is accepted. Availability is not continuous, and no income or sales outcome is promised.
+
+To run the tool yourself, use Python 3.10 or later. There are no third-party runtime dependencies:
+
+```bash
+python3 clean_csv.py input.csv --output delivery
+python3 clean_csv.py input.csv --output delivery2 --trim --drop-empty --dedupe id batch
+```
+
+The output directory must be new. Defaults preserve all records and field values. To retain leading zeros and avoid interpreting formula-like text, import the CSV into your spreadsheet application with the relevant columns set to text. The tool processes the file in memory. A disk write failure can leave an incomplete output directory; do not deliver it, and retry with a new directory after resolving the failure. The JSON report can contain original data and needs the same protection as the CSV.
+
+For tests, install pytest in your Python environment and run:
+
+```bash
+python3 -m pip install pytest
+python3 -m pytest -q
+```

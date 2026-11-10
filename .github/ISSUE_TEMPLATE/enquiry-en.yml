@@ -1,0 +1,71 @@
+name: CSV cleanup service enquiry
+description: Submit written rules and fully synthetic examples only. No real files or data.
+title: "[Enquiry] CSV cleanup request"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue and all replies are public. Do not upload real files, customer data, personal information, credentials, or payment information, including masked real data.
+        Trial quote: USD 5 for one CSV, up to 1,000 data records excluding the header, and up to 20 columns. The source code is free; the paid service is assisted file processing and delivery checking.
+        Payment is not configured. Enquiries require no payment and are not accepted orders. Scope, delivery time, and a payment method must be agreed before work is accepted.
+  - type: textarea
+    id: scope
+    attributes:
+      label: Processing scope
+      description: State the number of files, data records, and columns. Choose trimming whitespace, removing empty records, or deduplicating on specified columns.
+      placeholder: "One CSV, about 300 data records and 4 columns. Trim whitespace and deduplicate on id."
+    validations:
+      required: true
+  - type: textarea
+    id: columns-and-keys
+    attributes:
+      label: Column names and deduplication keys
+      description: Give synthetic column names and the single or composite deduplication key. Write "keep all records" if deduplication is not needed. Deduplication keeps the first record; records with any missing key component are retained.
+      placeholder: "Columns: id, batch, item. Deduplication key: id and batch together."
+    validations:
+      required: true
+  - type: textarea
+    id: synthetic-sample
+    attributes:
+      label: 100% synthetic input example
+      description: Write a small, entirely invented CSV example. Do not paste real records or attach files, even if identifiers have been masked.
+      render: text
+      placeholder: |
+        id,batch,item
+        0001,A, Sample A
+        0001,A,Sample A
+        0001,B,Sample B
+    validations:
+      required: true
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: Expected result and rules
+      description: Use the same synthetic example to show the expected output and describe which records should be kept or removed.
+      render: text
+      placeholder: |
+        id,batch,item
+        0001,A,Sample A
+        0001,B,Sample B
+        Rules: trim whitespace; deduplicate on id and batch, keeping the first record.
+    validations:
+      required: true
+  - type: textarea
+    id: timing
+    attributes:
+      label: Requested deadline
+      description: Give a preferred date and time zone. A requested deadline is not a confirmed delivery commitment.
+      placeholder: "Preferred date: YYYY-MM-DD. Time zone: UTC. Flexible if needed."
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I understand that this issue and all replies are public.
+          required: true
+        - label: I am submitting written requirements and 100% synthetic examples only, with no real files, customer data, personal information, credentials, or payment information.
+          required: true
+        - label: I understand that this enquiry is not an accepted order, payment is not configured, and scope, delivery time, and a payment method must be agreed before work is accepted.
+          required: true

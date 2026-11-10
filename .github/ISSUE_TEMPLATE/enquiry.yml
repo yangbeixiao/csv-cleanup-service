@@ -1,0 +1,71 @@
+name: CSV 整理服务询单
+description: 仅提交文字规则与完全虚构的示例，不上传真实文件。
+title: "[询单] CSV 整理需求"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本表单及其所有回复均公开。不要上传真实文件或真实数据，即使经过简单遮挡。
+        试报价为 19.9 元：一份 CSV、表头外最多 1,000 条记录、最多 20 列。
+        目前尚未配置收款，询单无需付款。范围、交付时间和交易方式确认后才接单。
+  - type: textarea
+    id: scope
+    attributes:
+      label: 处理范围
+      description: 说明文件数量、记录数量、列数量，以及需要去空白、删空记录或去重中的哪些操作。
+      placeholder: "一份 CSV，约 300 条数据、4 列；去首尾空白并按编号去重。"
+    validations:
+      required: true
+  - type: textarea
+    id: columns-and-keys
+    attributes:
+      label: 列名与去重键
+      description: 列出虚构列名；如需去重，明确单列或组合键。不需要去重时写“保留全部记录”。
+      placeholder: "列名：编号、批次、名称。去重键：编号和批次的组合，保留第一条。"
+    validations:
+      required: true
+  - type: textarea
+    id: synthetic-sample
+    attributes:
+      label: 100% 虚构的输入示例
+      description: 仅填写人工编造的少量 CSV 文本，不粘贴真实记录，不附文件。
+      render: text
+      placeholder: |
+        编号,批次,名称
+        0001,A, 示例甲
+        0001,A,示例甲
+        0001,B,示例乙
+    validations:
+      required: true
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: 期望结果与规则
+      description: 用同一组虚构示例写出期望结果，说明哪些记录保留或删除。工具按明确去重键保留第一条，缺失键的记录保留。
+      render: text
+      placeholder: |
+        编号,批次,名称
+        0001,A,示例甲
+        0001,B,示例乙
+        规则：去首尾空白，按编号和批次组合去重。
+    validations:
+      required: true
+  - type: textarea
+    id: timing
+    attributes:
+      label: 时间要求
+      description: 填写期望完成日期与时区；提出时间要求不代表已被接受。
+      placeholder: "期望日期：年-月-日，时区：Asia/Shanghai；可以协商。"
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我知道本 Issue 及回复公开可见。
+          required: true
+        - label: 本次只提交文字规则和 100% 虚构示例，没有真实文件或敏感信息。
+          required: true
+        - label: 我知道询单不代表已接单；目前收款未配置，须确认范围、时间和交易方式后再接单。
+          required: true

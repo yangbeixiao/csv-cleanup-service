@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.venv/
+deliveries/
+*.csv
+report.json
+.DS_Store

@@ -2,6 +2,10 @@
 
 提供 CSV 单表整理代处理服务，也可以免费下载代码自行运行。
 
+**静态网页小改试报价：39.9元，2天交付**：单个已有HTML/CSS页面最多3处文字、颜色字号或间距调整，交付修改源码、改动清单、桌面/移动端预览，含1次范围内更正。使用AI辅助开发；先确认源码使用权、范围、验收及付款方式。[公开询单](https://github.com/yangbeixiao/csv-cleanup-service/issues/new)：仅发公开页面和文字要求，不发私有代码、密码或真实客户资料。
+
+**CNY 39.9 trial quote, 2-day delivery:** up to 3 text or CSS styling changes on one existing static HTML page, with edited source, a change list, desktop/mobile previews, and one in-scope correction. AI-assisted development; scope, acceptance, source permissions and payment must be agreed first. [Public enquiry](https://github.com/yangbeixiao/csv-cleanup-service/issues/new): public URLs and written requirements only; no private code, credentials or customer data. Payment is not configured; an enquiry is not an accepted order.
+
 [English service details](#csv-cleanup-service-in-english) · [English enquiry form](https://github.com/yangbeixiao/csv-cleanup-service/issues/new?template=enquiry-en.yml)
 
 ## 服务范围与试报价
